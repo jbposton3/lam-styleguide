@@ -1,0 +1,572 @@
+@charset "utf-8";
+@import "normalize";
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+@import "ion-icons/ionicons";
+
+//Colors: Lazard Asset Mangement
+$laz-black: #23283c;
+$laz-blue: #175c89;
+$laz-pale-blue: #c7d4dd;
+$laz-yellow: #ffb500;
+$laz-blue-green: #00b0af;
+$laz-gray: #4f4f4f;
+$laz-orange: #d34d08;
+$laz-red: #c00000;
+$laz-green: #006423;
+$laz-black-dk-10: #0F111A;
+$laz-blue-dk-10: #0F3E5C;
+$laz-blue-dk-15: #0C2F46;
+$laz-blue-lt-10: #1F7BB7;
+$laz-blue-lt-25: #43A2DF;
+$laz-blue-lt-55: #C6E3F5;
+
+
+//Font Families: Styleguide
+$style-guide-text: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+//Font-families: Lazard Asset Management
+$first-font: 'Roboto', sans-serif;
+$second-font: garamond, serif;
+
+//Margin options
+$xxxl:  64px;
+$xxl: 56px;
+$xl: 48px;
+$l: 40px;
+$m: 32px;
+$s: 24px;
+$xs: 16px;
+$xxs: 12px;
+$xxxs: 8px;
+
+//DOCUMENT
+.content-grid{
+	@include outer-container();
+}
+
+body {
+  background: white;
+  text-align: left;
+  font-size: 1em;
+  font-family: $style-guide-text;
+}
+
+ul{
+	margin:0;
+	padding:0;
+	&.list-columns{
+		margin-top: $l;
+		-webkit-column-count: 3; /* Chrome, Safari, Opera */
+		-moz-column-count: 3; /* Firefox */
+		column-count: 3;
+	}
+}
+
+
+li{
+	text-decoration: none;
+	list-style-type: none;
+	margin-bottom: $xs;
+	&:last-child{
+		margin-bottom: 0;
+	}
+	&.items-2{
+		display: flex;
+		align-items: center;
+		margin: 0 $s 0 0;
+		color: $laz-gray; 
+		font-size: 1rem;
+  		font-weight: 300;
+	}
+	&.li-inline{
+		display: inline;
+		margin-right: 40px;
+	}
+
+}
+
+
+//Typography: Styleguide
+.style-guide-text{
+	font-family: $style-guide-text;
+	color: $laz-black;
+	&.page-h1{
+		font-family: $second-font;
+		font-size: 40px;
+		letter-spacing: 1px;
+		font-weight: 500;
+		margin: 0 0 $xs 0;
+	}
+	&.h1{
+		font-size: 30px;
+		letter-spacing: 1px;
+		font-weight: 300;
+		margin: 0 0 $s 0;
+	}
+	&.h2{
+		font-size: 14px;
+  		letter-spacing: 1px;
+  		text-transform: uppercase;
+  		font-weight: 600;
+  		margin: $xl 0 $s 0;
+	}
+	&.h3{
+		font-size: 18px;
+		font-weight: 500;
+		margin: $xl 0 $m 0;
+	}
+	&.p{
+		font-weight:300;
+		color: $laz-black;
+		font-size: 16px;
+		line-height: 1.3;
+	}
+	&.annotation-text{
+		line-height: 1.3;
+		margin-bottom: $xs;
+	}
+	&.desc{
+		color: $laz-gray; 
+		font-size: 1rem;
+  		font-weight: 300;
+ 		margin: $xxs 0 0 0;
+ 		&.type{
+ 			//float:right;
+ 			margin: 0 0 0 0;
+ 		}
+	}
+	&.last{
+		margin-bottom: 0;
+	}
+
+}
+
+b{
+	font-weight: 600;
+	color: $laz-black;
+}
+//Typography: Lazard Asset Management
+
+h1{
+  	font-size: 41.9px;
+  	line-height: 48px;
+  	margin: 0;	
+}
+
+h2{
+	font-size: 31.2px;
+	line-height: 39.1px;
+	margin: 0;	
+}
+
+h3{
+	font-size: 25.9px;
+	line-height: 32.4px;
+	margin: 0;	
+}
+
+h4{
+	font-size: 20px;
+	line-height: 26px;
+	margin: 0;	
+}
+
+p{
+	margin: 0;
+	max-width: 700px;
+
+	&.m{
+		font-size: 18px;
+		line-height: 28px;
+	}
+	&.s{
+		font-size: 16px;
+		line-height: 25px;
+	}
+
+	&.xs{
+		font-size: 14px;
+		line-height: 17.5px;
+	}
+
+	&.xxs{
+		font-size: 12.8px;
+		line-height: 16px;
+	}
+	&.p-inline{
+		display: inline;
+	}
+
+}
+
+.sans{
+	font-family: $first-font;
+}
+
+.serif{
+	font-family: $second-font;
+}
+
+.light{
+	font-weight: 300;
+}
+
+.regular{
+	font-weight: 400;
+}
+.semi-bold{
+	font-weight: 500;
+}
+.bold{
+	font-weight: 600;
+}
+
+a{
+	&.text-link{
+		font-family: $second-font;
+		color: $laz-blue-lt-10;
+		font-size: 18px;
+		line-height: 19px;
+		display: inline-block;
+		border-bottom: 2px dotted white;
+		&:hover{
+			border-bottom: 2px dotted $laz-blue-lt-10;
+			cursor: pointer;
+			.page-link{
+				color: $laz-blue-lt-10;
+			}
+			.icon{
+				color: $laz-blue-lt-10;
+			}
+		}
+	}
+}
+
+.page-link{
+	margin-right: $xxs;
+	font-family: $first-font;
+	display: inline-block;
+}
+.link-box{
+	display: flex;
+	align-items: center;
+	color: $laz-gray;
+}
+
+//icon sizes should also follow these rules
+
+//Icons
+
+.icon{
+	color: $laz-black;
+}
+.display{
+	width: 60px;
+	text-align: center;
+	line-height: 28px;
+}
+
+//-------------------------//
+//Sections
+
+#intro{
+	padding: 70px 0 70px 0;
+	border-top: none;
+	margin-bottom: 0;
+}
+
+section{
+	padding-top: $m;
+	margin-bottom: $xxxl;
+	border-top: 1px solid $laz-black;
+}
+
+.annotation{
+	background-color: #F5F6F7;
+	padding: $s $s $s $s;
+
+}
+
+.font-info{
+	border-bottom: 1px solid #E8E8E8;
+	padding-bottom: $m;
+}
+
+.color-grid{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: $m;
+}
+
+.color-item{
+	margin: 0 $m $m 0;
+}
+
+.color{
+	background-color: $laz-black;
+	width: 150px;
+	height: 150px;
+
+	&#color-1{
+		background-color: $laz-black;
+	}
+	&#color-2{
+		background-color: $laz-blue;
+	}
+	&#color-3{
+		background-color: $laz-pale-blue;
+	}
+	&#color-4{
+		background-color: $laz-yellow;
+	}
+	&#color-5{
+		background-color: $laz-blue-green;
+	}
+	&#color-6{
+		background-color: $laz-gray;
+	}
+	&#color-7{
+		background-color: $laz-black-dk-10;
+	}
+	&#color-8{
+		background-color: $laz-blue-dk-15;
+	}
+	&#color-9{
+		background-color: $laz-blue-dk-10;
+	}
+	&#color-10{
+		background-color: $laz-blue-lt-25;
+	}
+	&#color-11{
+		background-color: $laz-blue-lt-55;
+	}
+}
+
+
+.type-item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: $s 0 $s 0;
+	border-bottom: 1px solid #E8E8E8;
+}
+
+
+button{
+	display: block;
+	width: 215px;
+	padding: $xxs $xxs $xxs $xxs;
+	border: none;
+	-webkit-transition: background-color 150ms, padding-right 150ms;
+    transition: background-color 150ms, padding-right 150ms;
+	&.primary{
+		background-color: $laz-blue;
+		color: white;
+		text-align: center;
+		&:hover{
+			background-color: #186292;
+		}
+	}
+	&.secondary{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #D4E0E7;
+		& h4.icon{
+			color: #4f4f4f;
+		}
+		&:hover{
+			background-color: #C7D4DD;
+		}
+	}
+	&.research{
+		color: white;
+		background-color: $laz-blue-green;
+		padding-right: $s;
+		& h2.icon{
+			line-height: 28px;
+			color: white;
+		}
+		&:hover{
+			background-color: #009796;
+			padding-right: $xxs;
+		}
+	}
+	&.cookie{
+		background-color: $laz-blue-lt-10;
+		&:hover{
+			background-color: $laz-blue;
+		}
+	}
+
+	&.filter{
+		background-color: white; 
+		color: $laz-blue;
+		width: auto;
+		border: 2px solid $laz-blue;
+		padding: $xxs $s $xxs $s;
+		-webkit-border-radius: 100px;
+		-moz-border-radius: 100px;
+		border-radius: 100px;
+		&:hover{
+			background-color: #E9EEf2;
+		}
+		&:active{
+			background-color: $laz-blue;
+			color:white;
+		}
+		&:focus{
+			background-color: $laz-blue;
+			color:white;
+		}
+	}
+}
+
+.layout-section{
+	margin: $m 0 $m 0;
+}
+
+.sg-col{
+	text-align: center;
+	padding: $xs 0 $xs 0;
+	height: 100px;
+	background-color:  #E3F5FF;
+	border: 2px dotted #C4E9FE;
+	@include media($mobile){
+		margin-bottom: $xs;
+	}
+}
+
+.col-12{
+	@include span-columns(12);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+.col-8{
+	@include span-columns(8);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+.col-6{
+	@include span-columns(6);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+.col-4{
+	@include span-columns(4);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+.col-3{
+	@include span-columns(3);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+.col-1{
+	@include span-columns(1);
+	@include media($mobile){
+		@include span-columns(4);
+	}
+}
+
+
+.component{
+	@include row();
+}
+
+.table-tab-bar{
+	padding: $xxs 0 0 0;
+	border-bottom: 1px solid #C2C2C2;
+	li{
+		font-size: 1rem;
+		font-weight: 500;
+		padding: 0 0 $xxs 0;
+		color: $laz-black;
+		&:hover{
+			cursor: pointer;
+			color:$laz-blue-lt-10;
+			border-bottom: 2px solid $laz-blue-lt-10;
+		}
+		&.focus{
+			color:$laz-blue-lt-10;
+		}
+	}
+}
+
+
+//navigation
+
+header{
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.logo-container{
+	display: flex;
+	align-items: center;
+}
+nav{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: $s 0 $s 0;
+	.doc-title{
+	 	font-family: $second-font;
+		margin: 0;
+		display: inline-block;
+		padding-left: $xs;
+		font-size: 22px;
+		font-weight: 300;
+	}
+	ul{
+		float: right;
+
+	}
+	li{
+		display: inline-block;
+		margin-right: $xs;
+		font-size: 18px;
+		margin-bottom: 0;
+		//padding-bottom: $xs;
+		border-bottom: 1px solid white;
+		&:hover{
+			border-bottom: 1px solid $laz-blue;
+		}
+	}
+	a{
+		text-decoration: none;
+		color: $laz-black;
+		font-size: 16px;
+		&:active{
+			color: $laz-black;
+		}
+		&:visited{
+			color: $laz-black;
+		}
+
+	}
+}
+
+.logo{
+	width: 150px;
+	border-right: 1px solid $laz-black;
+	padding-right: $xs;
+}
+
+
+.clear{
+	clear: both;
+}
+
+

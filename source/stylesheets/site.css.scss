@@ -22,13 +22,16 @@ $laz-blue-lt-10: #1F7BB7;
 $laz-blue-lt-25: #43A2DF;
 $laz-blue-lt-55: #C6E3F5;
 
+//Colors: Styleguide 
+$gray: #ebebeb;
+
 
 //Font Families: Styleguide
 $style-guide-text: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 //Font-families: Lazard Asset Management
 $first-font: 'Roboto', sans-serif;
-$second-font: garamond, serif;
+$second-font: Garamond, serif;
 
 //Margin options
 $xxxl:  64px;
@@ -56,11 +59,17 @@ body {
 ul{
 	margin:0;
 	padding:0;
+	overflow: display;
 	&.list-columns{
 		margin-top: $l;
 		-webkit-column-count: 3; /* Chrome, Safari, Opera */
 		-moz-column-count: 3; /* Firefox */
 		column-count: 3;
+		@include media($tablet){
+			-webkit-column-count: 1;
+			-moz-column-count: 1;
+			column-count: 1;
+		}
 	}
 }
 
@@ -87,6 +96,12 @@ li{
 
 }
 
+.style-guide{
+	@include media($tablet){
+		padding-right: $xs;
+		padding-left: $xs;
+	}
+}
 
 //Typography: Styleguide
 .style-guide-text{
@@ -135,6 +150,9 @@ li{
  		&.type{
  			//float:right;
  			margin: 0 0 0 0;
+ 			@include media($mobile){
+ 				margin-top: $xxs;
+ 			}
  		}
 	}
 	&.last{
@@ -224,6 +242,8 @@ p{
 }
 
 a{
+	cursor: pointer;
+	text-decoration: none;
 	&.text-link{
 		font-family: $second-font;
 		color: $laz-blue-lt-10;
@@ -286,6 +306,7 @@ section{
 .annotation{
 	background-color: #F5F6F7;
 	padding: $s $s $s $s;
+	line-height: 1.2;
 
 }
 
@@ -351,10 +372,17 @@ section{
 	justify-content: space-between;
 	padding: $s 0 $s 0;
 	border-bottom: 1px solid #E8E8E8;
+	@include media($mobile){
+		display: block;
+	}
 }
 
+.flex-item{
+	flex-grow: 0;
+	flex-basis: auto;
+}
 
-button{
+.btn{
 	display: block;
 	width: 215px;
 	padding: $xxs $xxs $xxs $xxs;
@@ -368,11 +396,30 @@ button{
 		&:hover{
 			background-color: #186292;
 		}
+		&.mgn{
+			display: inline-block;
+			width: auto;
+			margin: 0 auto;
+			margin-top: $m;
+		}
 	}
 	&.secondary{
-		display: flex;
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		
+		-webkit-align-items: center;
+		-moz-align-items: center;
+		-ms-align-items: center;
 		align-items: center;
+
+		-webkit-justify-content: space-between;
+		-moz-justify-content: space-between;
+		-ms-justify-content: space-between;
 		justify-content: space-between;
+
 		background-color: #D4E0E7;
 		& h4.icon{
 			color: #4f4f4f;
@@ -404,6 +451,7 @@ button{
 	&.filter{
 		background-color: white; 
 		color: $laz-blue;
+		display: inline-block;
 		width: auto;
 		border: 2px solid $laz-blue;
 		padding: $xxs $s $xxs $s;
@@ -422,6 +470,7 @@ button{
 			color:white;
 		}
 	}
+
 }
 
 .layout-section{
@@ -506,7 +555,7 @@ button{
 }
 
 
-//navigation
+//NAVIGATION
 
 header{
 	border-bottom: 1px solid #E8E8E8;
@@ -521,6 +570,11 @@ nav{
 	align-items: center;
 	justify-content: space-between;
 	padding: $s 0 $s 0;
+	@include media($tablet){
+		display: block;
+		padding-right: $xs;
+		padding-left: $xs; 
+	}
 	.doc-title{
 	 	font-family: $second-font;
 		margin: 0;
@@ -531,6 +585,10 @@ nav{
 	}
 	ul{
 		float: right;
+		@include media($tablet){
+			float: none;
+			margin-top: $s;
+		}
 
 	}
 	li{
@@ -538,8 +596,10 @@ nav{
 		margin-right: $xs;
 		font-size: 18px;
 		margin-bottom: 0;
-		//padding-bottom: $xs;
 		border-bottom: 1px solid white;
+		@include media($mobile){
+			margin-bottom: $xs;
+		}
 		&:hover{
 			border-bottom: 1px solid $laz-blue;
 		}
@@ -570,3 +630,9 @@ nav{
 }
 
 
+//FOOTER
+footer{
+	height: 100px;
+	width: auto;
+	border-top: 1px solid #E8E8E8;
+}
